@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{item.item_name}}</title>
+</head>
+<body>
+	<h1>{{item.item_name}}</h1>
+	<h2>Users who added this onto their wishlist:</h2>
+	{% for val in wishlist %}
+    
+    <h2>{{val.user.name}}</h2>	
+
+ 	{% endfor %}
+
+</body>
+</html>

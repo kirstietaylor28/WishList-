@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Wishlist</title>
+</head>
+<body>
+	<h1>Hello, {{user.name}}!</h1> 
+	<a href="/logout">Logout</a>
+	<a href="/wishlist">Home</a>
+	<table>
+	  <tr>
+	    <th>Item</th>
+	    <th>Added By</th> 
+	    <th>Date Added</th>
+	    <th>Actions</th>
+	  </tr>
+	  {% for val in wishlist %}
+	  <tr>
+	    {% for obj in val.item.all %}
+	    <td><a href="/wishlist/{{obj.id}}">{{obj.item_name}}</td></td>	
+	    <td>{{user.name}}</td> 
+	     <td>{{obj.created_at}}</td>	
+	 	 <td><a href="/remove/{{obj.id}}">Remove From My Wishlist</td></a>
+	 	</tr>
+	 	{% endfor %}
+	 	{% endfor %}
+	</table>
+	<a href="/wishlist/create">Add Item</a>
+</body>
+</html>
